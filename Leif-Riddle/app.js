@@ -1,18 +1,18 @@
 "use strict";
 
 const ISLANDS = [
+  { image: window.RIDDLE_IMAGES.bornholm },
   { image: window.RIDDLE_IMAGES.svalbard },
   { image: window.RIDDLE_IMAGES.okinawa },
   { image: window.RIDDLE_IMAGES.als },
   { image: window.RIDDLE_IMAGES.granCanaria },
-  { image: window.RIDDLE_IMAGES.bornholm },
   { image: window.RIDDLE_IMAGES.groenland },
   { image: window.RIDDLE_IMAGES.nordoeenNewZealand }
 ];
 
 const CORRECT_WORD = "SANGBOG";
 const NOTIFY_TOPIC = "leif-riddle-aksel-84e0d5aa37b24e98";
-const STORAGE_KEY = "leif-riddle-state-v1";
+const STORAGE_KEY = "leif-riddle-state-v2";
 
 const defaultState = () => ({ admitted: false, page: 0, answers: Array(ISLANDS.length).fill(""), letters: [], solved: false });
 let state = loadState();
