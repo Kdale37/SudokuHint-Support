@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#24352d" />
+    <meta name="description" content="En lille ø-gåde til Aksel." />
+    <title>Aksels ø-gåde</title>
+    <link rel="preload" href="assets/svalbard.webp" as="image" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section id="loginScreen" class="card login-card" aria-labelledby="loginTitle">
+        <p class="eyebrow">En fødselsdagsgåde</p>
+        <h1 id="loginTitle">Hvem er du?</h1>
+        <p class="lead">Kun fødselsdagsbarnet må åbne denne rejse.</p>
+        <form id="loginForm" novalidate>
+          <label for="nameInput">Skriv dit navn</label>
+          <input id="nameInput" name="name" type="text" autocomplete="given-name" maxlength="30" autofocus />
+          <p id="loginError" class="error" role="alert"></p>
+          <button class="button primary" type="submit">Åbn gåden</button>
+        </form>
+      </section>
+
+      <section id="puzzleScreen" class="card puzzle-card hidden" aria-live="polite">
+        <header class="puzzle-header">
+          <div>
+            <p class="eyebrow">Aksels ø-rejse</p>
+            <h1>Hvilken ø?</h1>
+          </div>
+          <span id="progressText" class="progress-text"></span>
+        </header>
+        <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+
+        <figure class="island-frame">
+          <img id="islandImage" src="" alt="Tegnet rejsebillede med spor til en ø" />
+        </figure>
+
+        <div class="answer-area">
+          <label for="islandAnswer">Skriv øens navn</label>
+          <div class="answer-row">
+            <span id="firstLetter" class="first-letter" aria-label="Forbogstav">?</span>
+            <input id="islandAnswer" type="text" autocapitalize="words" autocomplete="off" maxlength="40" />
+          </div>
+          <p class="hint">Husk forbogstavet — du får brug for det til sidst.</p>
+          <p id="answerError" class="error" role="alert"></p>
+        </div>
+
+        <nav class="navigation" aria-label="Navigation mellem øerne">
+          <button id="backButton" class="button secondary" type="button">Tilbage</button>
+          <button id="nextButton" class="button primary" type="button">Næste</button>
+        </nav>
+      </section>
+
+      <section id="finalScreen" class="card final-card hidden" aria-labelledby="finalTitle">
+        <p class="eyebrow">Sidste opgave</p>
+        <h1 id="finalTitle">Find fødselsdagsordet</h1>
+        <p class="lead">Byt rundt på forbogstaverne. Tryk på to bogstaver, eller træk dem, indtil de danner det rigtige ord.</p>
+        <div id="letterTiles" class="letter-tiles" aria-label="Bogstaver, der kan byttes rundt"></div>
+        <p id="selectionHint" class="selection-hint" aria-live="polite">Vælg det første bogstav.</p>
+        <p id="formedWord" class="formed-word" aria-label="Det dannede ord"></p>
+        <button id="sendButton" class="button primary wide" type="button">Send svar</button>
+        <button id="finalBackButton" class="button text-button" type="button">Tilbage til sidste ø</button>
+        <div id="resultBox" class="result-box hidden" role="status"></div>
+      </section>
+    </main>
+
+    <footer>
+      <button id="resetButton" class="reset-button" type="button">Start forfra</button>
+    </footer>
+    <script>window.RIDDLE_IMAGES = {};</script>
+    <script src="assets/svalbard.js"></script>
+    <script src="assets/okinawa.js"></script>
+    <script src="assets/als.js"></script>
+    <script src="assets/gran-canaria.js"></script>
+    <script src="assets/bornholm.js"></script>
+    <script src="assets/groenland.js"></script>
+    <script src="assets/nordoeen-new-zealand.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
